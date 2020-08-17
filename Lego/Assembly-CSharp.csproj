@@ -70,6 +70,7 @@
     <Compile Include="Assets\FastIK\Scripts\Sample\SampleSinMover.cs" />
     <Compile Include="Assets\Scripts\Controller.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\PlayerAnimation.cs" />
     <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
     <None Include="Assets\FastIK\Documentation.txt" />
     <Reference Include="Unity.Timeline.Editor">
