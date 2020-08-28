@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
 
     protected Rigidbody Rigidbody;
     protected Quaternion LookRotation;
+    protected bool CanJump;
 
     private void Awake()
     {
@@ -46,9 +47,13 @@ public class Player : MonoBehaviour
         transform.rotation = LookRotation;
 
         Rigidbody.velocity += Vector3.up * Physics.gravity.y * (Rigidbody.velocity.y < 0 ? (FallMultiplier - 1): (JumpMultiplier - 1) * (Input.Jump ? 0f : 1f)) * Time.fixedDeltaTime;
+        CanJump = CanJump || DistanceFromGround() <= 0;
 
-        if (Input.Jump && DistanceFromGround() <= 0)
+        if (Input.Jump && CanJump)
+        {
+            CanJump = false;
             Rigidbody.velocity = new Vector3(Rigidbody.velocity.x, JumpForce, Rigidbody.velocity.z);
+        }
     }
 
     public float DistanceFromGround()
